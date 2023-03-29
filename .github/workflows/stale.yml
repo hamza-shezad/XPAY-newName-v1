@@ -19,5 +19,8 @@ jobs:
         stale-issue-label: 'no-issue-activity'
         stale-issue-message: 'Stale issue message'
 
+        delete-branch: true
+        days-before-pr-stale: 30
+        days-before-pr-close: 7
         stale-pr-label: 'no-pr-activity'
         stale-pr-message: 'Stale pull request message'
