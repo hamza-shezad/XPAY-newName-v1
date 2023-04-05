@@ -9,3 +9,7 @@ export function World(): string {
 export function HelloWorld(): string {
     return "Hello" + "World";
 }
+
+export function HelloArg(name: string): string {
+    return Hello() + " " + name;
+}

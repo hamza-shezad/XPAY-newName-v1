@@ -1,4 +1,4 @@
-import { Hello, HelloWorld } from "../src/Hello";
+import { Hello, HelloArg, HelloWorld } from "../src/Hello";
 
 describe("Hello.ts", () => {
     test("Hello returns 'Hello'", () => {
@@ -7,5 +7,12 @@ describe("Hello.ts", () => {
 
     test("HelloWorld returns 'HelloWorld'", () => {
         expect(HelloWorld()).toBe("HelloWorld");
+    });
+
+    test("HelloArg returns correctly with different arguments", () => {
+        expect(HelloArg("World")).toBe("Hello World");
+        expect(HelloArg("Earth")).toBe("Hello Earth");
+        expect(HelloArg("")).toBe("Hello ");
+        expect(HelloArg(" ")).toBe("Hello  ");
     });
 });
