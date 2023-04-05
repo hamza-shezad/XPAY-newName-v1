@@ -7,5 +7,5 @@ export function World(): string {
 }
 
 export function HelloWorld(): string {
-    return Hello() + "World";
+    return "Hello" + "World";
 }
