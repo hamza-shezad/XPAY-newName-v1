@@ -1,11 +1,13 @@
-export function Hello(): string {
-    return "Hello";
-}
+export function Hello(name?: string): string {
+    if (!name) {
+        return "Hello";
+    }
 
-export function World(): string {
-    return "World";
-}
+    const _name = name.trim();
 
-export function HelloWorld(): string {
-    return Hello() + "World";
+    if (!_name) {
+        return "Hello";
+    }
+
+    return "Hello" + " " + name.trim();
 }
