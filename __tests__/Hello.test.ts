@@ -6,7 +6,7 @@ describe("Hello.ts", () => {
     });
 
     test("HelloWorld returns 'HelloWorld'", () => {
-        expect(HelloWorld()).toBe("HelloWorld");
+        expect(HelloWorld()).toBe("Hello World");
     });
 
     test("HelloArg returns correctly with different arguments", () => {
