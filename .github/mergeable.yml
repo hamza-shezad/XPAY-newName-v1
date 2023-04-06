@@ -17,7 +17,7 @@ mergeable:
   - when: schedule.repository
     name: Stale pull request close
     validate:
-      - do: stake
+      - do: stale
         days: 37
         type: pull_request
     pass:
