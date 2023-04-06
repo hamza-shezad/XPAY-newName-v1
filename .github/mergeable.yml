@@ -1,0 +1,36 @@
+version: 2
+mergeable:
+  - when: schedule.repository
+    name: Stale pull request
+    validate:
+      - do: stale
+        days: 30
+        type: pull_request, issues
+    pass:
+      - do: comment
+        payload: This is a stale pull request. Closing in 7 days.
+
+  - when: schedule.repository
+    name: Stale pull request
+    validate:
+      - do: stake
+        days: 37
+        type: pull_request, issues
+    pass:
+      - do: close
+
+  - when: pull_request.*
+    name: Commit message validator
+    validate:
+      - do: commit
+        message:
+          regex: "^\w+-\d"
+    pass:
+      - do: labels
+        add: "ReadyToMerge"
+    fail:
+      - do: labels
+        add: "UnableToMerge"
+      - do: comment
+        payload: All commit message must contain Jira ticket ID
+      - do: close
