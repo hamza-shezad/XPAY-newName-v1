@@ -26,7 +26,7 @@ mergeable:
     validate:
       - do: commit
         message:
-          regex: ^\w+-\d
+          regex: ^\w+-\d+
     pass:
       - do: labels
         add: "ReadyToMerge"
@@ -37,3 +37,10 @@ mergeable:
         payload:
           body: All commit message must contain Jira ticket ID
       - do: close
+
+  - when: pull_request.*
+    name: Pull request description validator
+    validate:
+      - do: description
+        no_empty:
+          enabled: true
