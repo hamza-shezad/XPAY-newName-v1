@@ -6,6 +6,7 @@ mergeable:
       - do: stale
         days: 30
         type: pull_request, issues
+        time_zone: Asia/Karachi
     pass:
       - do: comment
         payload: This is a stale pull request. Closing in 7 days.
