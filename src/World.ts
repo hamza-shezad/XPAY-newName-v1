@@ -3,5 +3,5 @@ export function World(): string {
 }
 
 export function AnotherWorld(): string {
-    return "AnotherWorld";
+    return "Another World";
 }

@@ -5,7 +5,7 @@ describe("World", () => {
         expect(World()).toBe("World");
     });
 
-    test("AnotherWorld returns 'AnotherWorld'", () => {
-        expect(AnotherWorld()).toBe("AnotherWorld");
+    test("AnotherWorld returns 'Another World'", () => {
+        expect(AnotherWorld()).toBe("Another World");
     });
 });
