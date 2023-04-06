@@ -9,10 +9,8 @@ mergeable:
         time_zone: Asia/Karachi
     pass:
       - do: comment
-        payload: This is a stale pull request. Closing in 7 days.
-    error:
-      - do: comment
-        payload: An error occured
+        payload:
+          body: This is a stale pull request. Closing in 7 days.
 
   - when: schedule.repository
     name: Stale pull request close
@@ -22,9 +20,6 @@ mergeable:
         type: pull_request
     pass:
       - do: close
-    error:
-      - do: comment
-        payload: An error occured
 
   - when: pull_request.*
     name: Commit message validator
@@ -39,8 +34,6 @@ mergeable:
       - do: labels
         add: "UnableToMerge"
       - do: comment
-        payload: All commit message must contain Jira ticket ID
+        payload:
+          body: All commit message must contain Jira ticket ID
       - do: close
-    error:
-      - do: comment
-        payload: An error occured
