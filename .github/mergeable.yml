@@ -1,11 +1,11 @@
 version: 2
 mergeable:
   - when: schedule.repository
-    name: Stale pull request
+    name: Stale pull request comment
     validate:
       - do: stale
         days: 30
-        type: pull_request, issues
+        type: pull_request
         time_zone: Asia/Karachi
     pass:
       - do: comment
@@ -15,11 +15,11 @@ mergeable:
         payload: An error occured
 
   - when: schedule.repository
-    name: Stale pull request
+    name: Stale pull request close
     validate:
       - do: stake
         days: 37
-        type: pull_request, issues
+        type: pull_request
     pass:
       - do: close
     error:
@@ -31,7 +31,7 @@ mergeable:
     validate:
       - do: commit
         message:
-          regex: "^\w+-\d"
+          regex: ^\w+-\d
     pass:
       - do: labels
         add: "ReadyToMerge"
